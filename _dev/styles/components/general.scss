@@ -1,0 +1,49 @@
+/*
+*  Main
+________________________________________*/
+
+html {
+	scroll-behavior: smooth;
+}
+
+a {
+	&:not([href]):not(.button) {
+		cursor: auto;
+	}
+
+	&.full-unstyled-link:not([aria-disabled])::after {
+		bottom: 0;
+		content: '';
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 1;
+	}
+}
+
+//Header Section
+.ax__heading-container {
+	margin-bottom: 2rem;
+	@include media-breakpoint-up(md) {
+		margin-bottom: 2.5rem;
+	}
+
+	.ax__heading {
+		margin-top: 0;
+	}
+
+	.ax__subheading {
+		@include subheading;
+	}
+}
+
+//Badge/Ribbons
+.badge {
+	font-size: $font-size-small;
+	font-weight: $weight-medium;
+	line-height: 1;
+	letter-spacing: 0;
+	text-transform: uppercase;
+	margin-bottom: .5rem;
+}

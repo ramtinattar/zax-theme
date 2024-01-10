@@ -1,0 +1,107 @@
+.button, .shopify-challenge__button, .product-form .shopify-payment-button__button, .customer button {
+	font-family: $font-body;
+	font-weight: $weight-medium;
+	font-size: $font-size-base;
+	letter-spacing: $letter-spacing;
+	line-height: normal;
+	min-height: calc(4.5rem + $border-width * 2);
+	padding: 10px 3rem;
+	border: $border-width solid rgba(var(--color-button-border), var(--buttons-border-opacity));
+	border-radius: $border-radius;
+	transition: $transition-base;
+	text-decoration: none;
+	text-transform: uppercase;
+	cursor: pointer;
+
+	&::after {
+		--border-offset: 0px !important;
+		box-shadow: none !important;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		outline: none;
+		color: rgb(var(--color-button));
+		background-color: rgb(var(--color-button-text));
+		border-color: rgba(var(--color-button-border), var(--buttons-border-opacity));
+	}
+
+	&.button--primary,
+	&.shopify-payment-button__button--unbranded {
+		@include btn-style(rgb(var(--color-button-text)), rgb(var(--color-button)), rgba(var(--color-button-border), var(--buttons-border-opacity)), rgb(var(--color-button-text-hover)), rgb(var(--color-button-hover)), rgba(var(--color-button-border-hover), var(--buttons-border-opacity)));
+
+		&.loading > .loading-overlay__spinner .path {
+			stroke: rgb(var(--color-button-text));
+		}
+	}
+
+	&.button--secondary {
+		@include btn-style(rgb(var(--color-secondary-button-text)), rgb(var(--color-secondary-button)), rgba(var(--color-secondary-button-border), var(--buttons-border-opacity)), rgb(var(--color-secondary-button-text-hover)), rgb(var(--color-secondary-button-hover)), rgba(var(--color-secondary-button-border-hover), var(--buttons-border-opacity)));
+
+		&.loading > .loading-overlay__spinner .path {
+			stroke: rgb(var(--color-secondary-button-text));
+		}
+	}
+
+	&.loading {
+		color: transparent !important;
+	}
+
+	&:active,
+	&.active {
+		background-image: none;
+	}
+
+	&[disabled],
+	&[disabled]:hover,
+	&[disabled]:focus,
+	&[disabled]:active {
+		background-color: $gray-500;
+		border-color: $gray-500;
+		color: $white;
+		cursor: not-allowed;
+		opacity: 1;
+	}
+
+	&[aria-disabled='true'] {
+		opacity: 1;
+	}
+}
+
+.ax-link {
+	position: relative;
+	display: inline-block;
+	border: none;
+	padding: 5px 0;
+	transition: all 0.5s cubic-bezier(.215, .61, .355, 1);
+	font-family: $font-body;
+	font-weight: $weight-medium;
+	font-size: $font-size-base;
+	line-height: 1;
+	letter-spacing: $letter-spacing;
+	text-decoration: none;
+	color: $link;
+	cursor: pointer;
+
+	&:hover {
+		&::before {
+			left: 0;
+			right: 80%;
+			opacity: 1;
+		}
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: block;
+		border-bottom: 1px solid $link;
+		opacity: 1;
+		transition: all 0.5s cubic-bezier(.215, .61, .355, 1);
+		z-index: 2;
+	}
+}

@@ -1,0 +1,25 @@
+{%- liquid
+    assign body_font_light = settings.type_body_font | font_modify: 'weight', '300'
+    assign body_font_medium = settings.type_body_font | font_modify: 'weight', '500'
+    assign body_font_semibold = settings.type_body_font | font_modify: 'weight', '600'
+    assign body_font_bold = settings.type_body_font | font_modify: 'weight', '700'
+    assign body_font_black = settings.type_body_font | font_modify: 'weight', '900'
+    assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
+    assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
+
+    assign body_heading_light = settings.type_header_font | font_modify: 'weight', '300'
+    assign body_heading_medium = settings.type_header_font | font_modify: 'weight', '500'
+    assign body_heading_semibold = settings.type_header_font | font_modify: 'weight', '600'
+    assign body_heading_bold = settings.type_header_font | font_modify: 'weight', '700'
+    assign body_heading_black = settings.type_header_font | font_modify: 'weight', '900'
+    assign body_heading_italic = settings.type_header_font | font_modify: 'style', 'italic'
+-%}
+
+{%- style -%}
+    {{ body_font_bold | font_face: font_display: 'swap' }}
+    {{ body_font_italic | font_face: font_display: 'swap' }}
+    {{ body_font_bold_italic | font_face: font_display: 'swap' }}
+
+    {{ settings.type_body_font | font_face: font_display: 'swap' }}
+    {{ settings.type_header_font | font_face: font_display: 'swap' }}
+{%- endstyle -%}

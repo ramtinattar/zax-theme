@@ -1,0 +1,124 @@
+@import './functions.scss';
+
+//Media query up
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+	@if $min {
+		@media (min-width: $min) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+//Media query down
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+	$max: breakpoint-max($name, $breakpoints);
+	@if $max {
+		@media (max-width: $max) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+//Media query only
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+	$min: breakpoint-min($name, $breakpoints);
+	$max: breakpoint-max($name, $breakpoints);
+
+	@if $min != null and $max != null {
+		@media (min-width: $min) and (max-width: $max) {
+			@content;
+		}
+	} @else if $max == null {
+		@include media-breakpoint-up($name, $breakpoints) {
+			@content;
+		}
+	} @else if $min == null {
+		@include media-breakpoint-down($name, $breakpoints) {
+			@content;
+		}
+	}
+}
+
+//Only Firefox
+@mixin firefox-only {
+	@at-root {
+		@-moz-document url-prefix() {
+			& {
+				@content;
+			}
+		}
+	}
+}
+
+//Gutters
+@mixin padding-base($gutter: $grid-gutter-width) {
+	padding: 0 $gutter;
+	@include media-breakpoint-down(sm){
+		padding: 0 ($gutter / 2);
+	}
+}
+
+//Container
+@mixin make-container($gutter: $grid-container-width) {
+	padding-right: $gutter !important;
+	padding-left: $gutter !important;
+	@include media-breakpoint-down(sm){
+		padding-right: calc($gutter / 2) !important;
+		padding-left: calc($gutter / 2) !important;
+	}
+}
+
+//Btn
+@mixin btn-style($color, $background, $border, $hover-color, $hover-background, $hover-border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+
+	&:hover:not([disabled]):not(.loading),
+	&:focus:not([disabled]):not(.loading),
+	&.focus:not([disabled]):not(.loading) {
+		color: $hover-color;
+		background-color: $hover-background;
+		border-color: $hover-border;
+	}
+}
+
+//Flex
+@mixin flex($justify-content, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+//Cover
+@mixin cover-center-top {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+@mixin cover-center-left {
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+@mixin cover-center {
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+//Subheading
+@mixin subheading {
+	font-size: $font-size-base;
+	margin-bottom: 1.5rem;
+
+	@include media-breakpoint-up(md) {
+		font-size: $font-size-large;
+		margin-bottom: 1rem;
+	}
+}

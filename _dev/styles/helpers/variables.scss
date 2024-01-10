@@ -1,0 +1,84 @@
+//Typography
+$font-body: var(--font-body-family);
+$font-heading: var(--font-heading-family);
+
+//Font Weight
+$weight-light: 300;
+$weight-normal: 400;
+$weight-medium: 500;
+$weight-semi-bold: 600;
+$weight-bold: 700;
+$weight-black: 900;
+
+//Line height
+$line-height-base: 1.5em;
+
+//Letter spacing
+$letter-spacing: 0.03em;
+
+//Font Size
+$font-size-extra-large: calc(var(--font-body-scale) * 2rem); //20px
+$font-size-large: calc(var(--font-body-scale) * 1.8rem); //18px
+$font-size-base: calc(var(--font-body-scale) * 1.6rem); //16px
+$font-size-small: calc(var(--font-body-scale) * 1.4rem); //14px
+$font-size-extra-small: calc(var(--font-body-scale) * 1.2rem); //12px
+
+$font-size-h0: calc(var(--font-heading-scale) * 6rem); //60px
+$font-size-h1: calc(var(--font-heading-scale) * 5rem); //50px
+$font-size-h2: calc(var(--font-heading-scale) * 4rem); //40px
+$font-size-h3: calc(var(--font-heading-scale) * 3.5rem); //35px
+$font-size-h4: calc(var(--font-heading-scale) * 3rem); //30px
+$font-size-h5: calc(var(--font-heading-scale) * 2.5rem); //25px
+$font-size-h6: calc(var(--font-heading-scale) * 2rem); //20px
+
+//Colors
+$gray-100: #f6f5f5;
+$gray-200: #dddddd;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #9C9996;
+$gray-600: #6c757d;
+$gray-700: #666666;
+$gray-800: #444444;
+$gray-900: #212529;
+
+$white:   #ffffff;
+$black:   #000000;
+$blue:    #007bff;
+$purple:  #6f42c1;
+$pink:    #e83e8c;
+$red:     #e92426;
+$orange:  #fd7e14;
+$yellow:  #ffc107;
+$green:   #28a745;
+
+// Nuancier
+$background: rgb(var(--color-background));
+$title: rgb(var(--color-foreground-title));
+$text: rgb(var(--color-foreground));
+$link: rgb(var(--color-link));
+
+//Components
+$primary-box-rgba: rgba(var(--color-button-border), var(--buttons-border-opacity));
+$secondary-box-rgba: rgba(var(--color-secondary-button-border), var(--buttons-border-opacity));
+
+$border-color: $gray-600;
+$border-radius: var(--buttons-radius);
+$border-width: var(--buttons-border-width);
+$transition-base: all .2s ease-in-out;
+
+//Grid
+$grid-gutter-width:    20px;
+$grid-container-width: 60px;
+
+//Box Shadow
+$box-shadow: inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($black, .075);
+
+//Media queries
+$grid-breakpoints: (
+		xs: 0,
+		sm: 550px,
+		md: 750px,
+		lg: 990px,
+		xl: 1200px
+);

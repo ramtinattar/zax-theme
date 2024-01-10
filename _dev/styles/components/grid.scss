@@ -1,0 +1,91 @@
+.page-width {
+	@include make-container();
+}
+
+.position {
+	@include media-breakpoint-up(md) {
+		&.top-left {
+			top: 0;
+			left: 0;
+		}
+
+		&.top-center {
+			top: 0;
+			@include cover-center-left;
+			text-align: center;
+		}
+
+		&.top-right {
+			top: 0;
+			right: 0;
+			text-align: right;
+		}
+
+		&.middle-left {
+			left: 0;
+			@include cover-center-top;
+		}
+
+		&.middle-center {
+			@include cover-center;
+			text-align: center;
+		}
+
+		&.middle-right {
+			right: 0;
+			@include cover-center-top;
+			text-align: right;
+		}
+
+		&.bottom-left {
+			bottom: 0;
+			left: 0;
+		}
+
+		&.bottom-center {
+			bottom: 0;
+			@include cover-center-left;
+			text-align: center;
+		}
+
+		&.bottom-right {
+			bottom: 0;
+			right: 0;
+			text-align: right;
+		}
+	}
+	@include media-breakpoint-down(sm) {
+		&.mobile-left {
+			left: 30px;
+			text-align: left;
+		}
+
+		&.mobile-center {
+			@include cover-center-left;
+			text-align: center;
+		}
+
+		&.mobile-right {
+			right: 30px;
+			text-align: right;
+		}
+
+		&.mobile-top {
+			top: 30px;
+			left: 30px;
+			text-align: left;
+		}
+
+		&.mobile-left-center {
+			left: 30px;
+			@include cover-center-top;
+			text-align: left;
+		}
+
+		&.mobile-bottom {
+			bottom: 30px;
+			left: 30px;
+			text-align: left;
+		}
+	}
+}
